@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <vector>
+#include <fstream>
 
 class Student {
 private:
@@ -53,5 +54,6 @@ public:
   std::string get_student_name(int);
   float get_credits(int);
   float get_gpa(int);
-  void report_card(int);
+  void report_card(int, std::ofstream&);
+  void report_file(std::ofstream&);
 };

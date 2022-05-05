@@ -28,10 +28,10 @@ float flt = -7.44f;
 int32_t sgn;
 uint32_t unsgn;
 
-int array[] = {1, 3, 4, 5, 6};
+int int_array[] = {1, 3, 4, 5, 6};
 
 int main() {
-  int summation = array[0] + array[1] + array[2] + array[3] + array[4];
+  int summation = int_array[0] + int_array[1] + int_array[2] + int_array[3] + int_array[4];
   float average = (float)summation / 5;
   cout << "Sum:     " << summation << endl;
   cout << "Average: " << average << endl;

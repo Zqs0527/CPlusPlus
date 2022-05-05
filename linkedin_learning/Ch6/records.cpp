@@ -95,20 +95,37 @@ float StudentRecords::get_gpa(int id_student) {
   return totalPoints / totalCredits;
 }
 
-void StudentRecords::report_card(int id_student) {
+void StudentRecords::report_card(int id_student, std::ofstream& stream) {
   float gpa;
   gpa = get_gpa(id_student);
-  std::cout << "The report card for " << get_student_name(id_student)
-            << " is: " << std::endl;
-  for (Grade &g : grades) {
+  stream << "The report card for " << get_student_name(id_student)
+         << " is: " << std::endl;
+  for (Grade& g : grades) {
     if (g.get_student_id() == id_student) {
-      for (Course &c : courses) {
+      for (Course& c : courses) {
         if (g.get_course_id() == c.get_id()) {
-          std::cout << c.get_name() << ": " << g.get_grade() << std::endl;
+          stream << c.get_name() << ": " << g.get_grade() << std::endl;
         }
       }
     }
   }
-  
-  std::cout << "The GPA is: " << gpa << std::endl;
+
+  stream << "The GPA is: " << gpa << std::endl;
+}
+
+void StudentRecords::report_file(std::ofstream &outFile) {
+  outFile.open("report.txt");
+  if (outFile.fail()) {
+    std::cout << "File is not able to open..." << std::endl;
+  } 
+  else {
+    for (Student& s : students) {
+      outFile << "The name of student is:  " << s.get_name() << std::endl;
+      outFile << "=========================================" << std::endl;
+      report_card(s.get_id(), outFile);
+      outFile << "=========================================" << std::endl;
+    }
+    outFile << "Finish generationg the report.." << std::endl;
+    outFile.close();
+  }
 }

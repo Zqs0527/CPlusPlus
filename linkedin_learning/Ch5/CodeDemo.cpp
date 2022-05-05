@@ -11,9 +11,9 @@ int main(){
     initialize();
     cout << "Please enter student id: ";
     cin >> id;
-    gpa = studentRecord.get_gpa(id);
+    studentRecord.report_card(id);
 
-    cout << "The GPA of " << studentRecord.get_student_name(id) << " is " << gpa << endl; 
+    // cout << "The GPA of " << studentRecord.get_student_name(id) << " is " << gpa << endl; 
 
 }
 void initialize(){
