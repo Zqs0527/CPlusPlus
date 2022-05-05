@@ -54,7 +54,7 @@ void initialize(ifstream& inFile) {
       nameCourse = str;
       getline(inFile, str);
       credits = (float)stoi(str);
-      studentRecords.add_courses(idStudent, nameCourse, credits);
+      studentRecords.add_courses(idCourse, nameCourse, credits);
     }
     inFile.close();
   }

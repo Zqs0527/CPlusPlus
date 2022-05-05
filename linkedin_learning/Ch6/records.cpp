@@ -81,8 +81,8 @@ float StudentRecords::get_credits(int id_course) {
 }
 
 float StudentRecords::get_gpa(int id_student) {
-  float totalPoints;
-  float totalCredits;
+  float totalPoints=0.0f;
+  float totalCredits=0.0f;
 
   for (Grade &g : grades) {
     if (g.get_student_id() == id_student) {
@@ -100,9 +100,9 @@ void StudentRecords::report_card(int id_student, std::ofstream& stream) {
   gpa = get_gpa(id_student);
   stream << "The report card for " << get_student_name(id_student)
          << " is: " << std::endl;
-  for (Grade& g : grades) {
+  for (Grade &g : grades) {
     if (g.get_student_id() == id_student) {
-      for (Course& c : courses) {
+      for (Course &c : courses) {
         if (g.get_course_id() == c.get_id()) {
           stream << c.get_name() << ": " << g.get_grade() << std::endl;
         }

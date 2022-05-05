@@ -1,2 +1,28 @@
 The name of student is:  George P. Burdell
 =========================================
+The report card for George P. Burdell is: 
+Algebra: B
+Physics: A
+English: C
+Economics: A
+The GPA is: 3.3125
+=========================================
+The name of student is:  Nancy Rhodes
+=========================================
+The report card for Nancy Rhodes is: 
+Algebra: A
+Physics: A
+Economics: B
+Chemistry: B
+The GPA is: 3.5625
+=========================================
+The name of student is:  Yuan Chen
+=========================================
+The report card for Yuan Chen is: 
+Physics: A
+Economics: C
+Algebra: A
+Chemistry: B
+The GPA is: 3.3125
+=========================================
+Finish generationg the report..

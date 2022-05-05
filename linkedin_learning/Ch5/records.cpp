@@ -81,8 +81,8 @@ float StudentRecords::get_credits(int id_course) {
 }
 
 float StudentRecords::get_gpa(int id_student) {
-  float totalPoints;
-  float totalCredits;
+  float totalPoints=0.0f;
+  float totalCredits=0.0f;
 
   for (Grade &g : grades) {
     if (g.get_student_id() == id_student) {
