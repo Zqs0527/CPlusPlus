@@ -36,3 +36,6 @@ y = *ip; // this statements copies the value pointed to by ip into y. this aster
 ```
 
 ### References
+- No need to use dereference (* asterisk). The value of a reference is always the referred value
+- There is no syntax for changing the reference. Once it is defined, it can't be changed
+- Recommend that reference has const as a modifier
