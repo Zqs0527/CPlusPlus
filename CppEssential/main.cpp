@@ -1,4 +1,5 @@
 #include <cstdio>
+#include <cstdint>
 
 void func() { puts("this is func"); }
 
@@ -28,9 +29,43 @@ int functionSimple() {
 
 int &f(int &i) { return ++i; };
 
-int main(int, char **) {
+union ipv4 {
+  uint32_t i32;
+  struct {
+    uint8_t a;
+    uint8_t b;
+    uint8_t c;
+    uint8_t d;
+  } octets;
+};
+
+struct LibraryCatalogCard
+{
+  const char * title;
+  const char * author;
+  const char * publisher;
+  const char * subject;
+  const char * ISBN;
+  const char * worldCat;
+  float deweyDecimal;
+  int yearPublished;
+  int yearAcquired;
+  int quantityInStock;
+};
+
+
+int main(int, char **) { 
+
+  struct LibraryCatalogCard lbc = {};
+
+  union ipv4 adrs;
+  adrs.octets = {192, 168, 73, 42};
+  printf("address is %d.%d.%d.%d is %08x\n", adrs.octets.a, adrs.octets.b,
+         adrs.octets.c, adrs.octets.d, adrs.i32);
+
   int inputNumber = 5;
-  f(inputNumber) = 43;;
+  f(inputNumber) = 43;
+
   printf("f(i) is %d\n", f(inputNumber));
   printf("i is %d\n", inputNumber);
 

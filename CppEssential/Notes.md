@@ -128,3 +128,22 @@ int main(){
     j->id;
 }
 ```
+
+### Union
+It is a data structure that allows you to use the same memory space for different types
+
+### Defining types with typedef
+```
+typedef unsigned char points_t; // _t is tradtional for the type def types
+typedef unsigned char rank_t;
+
+struct score {
+    points_t p;
+    rank_t r;
+};
+
+int main(){
+    score s = {5,1};
+    return 0;
+}
+```
