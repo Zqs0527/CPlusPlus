@@ -147,3 +147,19 @@ int main(){
     return 0;
 }
 ```
+### Compound operator
+The variable on the left hand side will be evaluated once. More efficient
+
+### Pointer increment
+```
+void printp(int *p){
+    printf("pointer is %p, value is %d\n", p, *p);
+}
+
+int main(){
+    uint8_t *arr = {4,3,2,1};
+    uint8_t *p = arr;
+    printp(p++);
+}
+```
+pre-increment is slightly more efficient than the post-increment, because post-increment has to copy the value firstly

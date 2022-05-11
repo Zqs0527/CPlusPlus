@@ -39,22 +39,27 @@ union ipv4 {
   } octets;
 };
 
-struct LibraryCatalogCard
-{
-  const char * title;
-  const char * author;
-  const char * publisher;
-  const char * subject;
-  const char * ISBN;
-  const char * worldCat;
+struct LibraryCatalogCard {
+  const char *title;
+  const char *author;
+  const char *publisher;
+  const char *subject;
+  const char *ISBN;
+  const char *worldCat;
   float deweyDecimal;
   int yearPublished;
   int yearAcquired;
   int quantityInStock;
 };
 
+void printp(uint8_t *p) { printf("pointer is %p, value is %d\n", p, *p); }
 
-int main(int, char **) { 
+int main(int, char **) {
+  uint8_t arr[] = {4, 3, 2, 1};
+  uint8_t *p1 = arr;
+  printp(p1++);
+  printp(p1++);
+  printp(p1++);
 
   struct LibraryCatalogCard lbc = {};
 
