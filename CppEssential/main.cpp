@@ -52,9 +52,39 @@ struct LibraryCatalogCard {
   int quantityInStock;
 };
 
-void printp(uint8_t *p) { printf("pointer is %p, value is %d\n", p, *p); }
+void printp(uint8_t *p) { printf("pointer is %p, value is %d\n", p, *p);}
+
+const char * u8_to_bstr(const uint8_t & u8) {
+    static char s[9];   // space for 8-char string
+    s[8] = 0;           // terminate string
+    char * sp = s;
+    for (uint8_t xbit = 0b10000000; xbit > 0; xbit >>= 1) {
+        *(sp++) = ((u8 & xbit) == xbit) ? '1' : '0';
+    }
+    return s;
+} 
 
 int main(int, char **) {
+  bool isPrime;
+  for (int i = 2; i < 100; i++)
+  {
+    isPrime = true;
+    for (int j = 2; j <= i; j++)
+    {
+      if (i%j == 0 && j != i)
+      {
+        isPrime = false;
+        break;
+      }  
+    }
+    if (isPrime)
+    {
+      printf("%d\n",i);
+    }
+    
+  }
+  
+
   uint8_t arr[] = {4, 3, 2, 1};
   uint8_t *p1 = arr;
   printp(p1++);

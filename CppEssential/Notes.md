@@ -23,6 +23,7 @@ Identifiers: Latin alphabet; numerics; underscore
 Qualifiers (modifiers), they change the behavior of the varibles in various ways:
 
 - **const**: can't change after defined
+- double ampersand(&&)
 
 ### Pointers
 ```
@@ -79,7 +80,7 @@ const char * cstring = "String"; // makes the pointer to point to the type of th
 ```
 
 ### Character escape
-- backslash `\`t
+- backslash `\`
 
 ### Qualifier
 `const static int- i = 42; // const and static are qualifiers`
@@ -163,3 +164,22 @@ int main(){
 }
 ```
 pre-increment is slightly more efficient than the post-increment, because post-increment has to copy the value firstly
+
+### Dynamic memory operators
+```
+#include <new>
+
+delete
+```
+
+### Using sizeof
+- `size_t` is the return type of the `sizeof`
+- `%zd` is used for `size_t` type
+- `sizeof` always returns byte
+- Find the space for a type
+
+### Using typeid
+```
+#include <typeinfo>
+typeid(a1)
+```
