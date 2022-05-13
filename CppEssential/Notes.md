@@ -183,3 +183,19 @@ delete
 #include <typeinfo>
 typeid(a1)
 ```
+
+### Function
+- function must be defined before it is getting called e.g. before `main()`
+```
+void func(); // declaration, this is showing a signature; this declaration is usually put in .h file
+
+int main(){
+
+}
+void func(){
+    puts("implementation");
+}
+```
+- If a large value is passed to a function, it is better to pass it as a reference or a pointer. It will not pass all values on the stack. The values on stack is temporary. 
+- Static variable is not on the stack, while automatic storage is on the stack. Avoid to use automatic storage for a large value.
+- 
