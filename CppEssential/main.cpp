@@ -71,15 +71,30 @@ int f1(int a) {
   return ++a;
 }
 
+void funcHeader(std::string *s) {
+  puts("implementation");
+  printf("the value is %s\n", s->c_str());
+}
 
-void funcHeader(std::string * s) {
-   puts("implementation"); 
-   printf("the value is %s\n", s->c_str());
-   }
+unsigned long int factorial(unsigned long int input) {
+  unsigned long int factorialOut = 1;
+  if (input == 1)
+  {
+    return 1;
+  }
+  
+  for (unsigned long int i = input; i > 1; i--) {
+    factorialOut *= i;
+  }
+  return factorialOut;
+}
 int main(int, char **) {
   std::string ss = "This is a long string";
   puts("this main function");
   funcHeader(&ss);
+  unsigned long int rr = 5;
+  unsigned long int output = factorial(rr);
+  printf("the factorial of %ld is %ld", rr, output);
 
   int tt = 3;
   f1(tt);
@@ -208,5 +223,3 @@ int main(int, char **) {
   // printf("the value of *ip is %d\n", *ip);
   puts("Hello, world!\n");
 }
-
-

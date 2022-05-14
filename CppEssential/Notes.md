@@ -198,4 +198,59 @@ void func(){
 ```
 - If a large value is passed to a function, it is better to pass it as a reference or a pointer. It will not pass all values on the stack. The values on stack is temporary. 
 - Static variable is not on the stack, while automatic storage is on the stack. Avoid to use automatic storage for a large value.
-- 
+- If you want to return as a reference, it is better to define the return values as `static`.
+- Function pointer
+
+    - Function pointer is taking the address of a function and assign it to a pointer
+
+### Class
+- Class should have a semi-colon as the end
+```
+class SampleClass {
+    private:
+    int i = 0;
+    public:
+    int getValue(){return i};
+    void setValue(int input) {i = input;}
+};
+```
+The implementation of the class functions can be done outside of the class
+```
+class SampleClass {
+    private:
+    int i = 0;
+    public:
+    int getValue();
+    void setValue(int input);
+}; // it is usually put in a separated file (.h file)
+
+int SampleClass::getValue(){
+    return i;
+}
+
+void SampleClass::setValue(int input){
+    i = input;
+}
+```
+- Data members are private as default
+
+Mark the function memembers `const`: 
+```
+class SampleClass {
+    private:
+    int i = 0;
+    public:
+    int getValue();
+    int getValue() const;
+    void setValue(int input);
+}; // it is usually put in a separated file (.h file)
+
+int SampleClass::getValue() const{
+    return i; // you can't change the value of i
+}
+
+void SampleClass::setValue(int input){
+    i = input;
+}
+```
+`const function` can always be called. `Non const function` can only be called by `non const objects`, usually called mutable objects
