@@ -254,3 +254,22 @@ void SampleClass::setValue(int input){
 }
 ```
 `const function` can always be called. `Non const function` can only be called by `non const objects`, usually called mutable objects
+
+### Templates
+```
+template <typename T> T maxof (T a, T b){
+    return (a > b ? a  : b);
+}
+```
+During compiling time, each specialization is generated. One specialization is created for each combination. 
+```
+int maxof (int a, int b){
+    return (a > b ? a : b);
+}
+```
+- Caveats
+
+    - Lager executables
+    - Confusing error messages
+    -  Longer compile times
+

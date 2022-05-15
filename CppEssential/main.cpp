@@ -1,5 +1,6 @@
 #include <cstdio>
-#include <cstdint>
+#include <cstdint> 
+#include <iostream>
 #include <string>
 #include "funcHeader.h"
 
@@ -88,7 +89,14 @@ unsigned long int factorial(unsigned long int input) {
   }
   return factorialOut;
 }
+
+template <typename T> T maxof (T a, T b){
+  return (a > b ? a : b);
+} // typename is agnostic
+
 int main(int, char **) {
+  std::cout << maxof<int>(7,9) << std::endl;
+
   std::string ss = "This is a long string";
   puts("this main function");
   funcHeader(&ss);
