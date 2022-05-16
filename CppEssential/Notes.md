@@ -255,7 +255,7 @@ void SampleClass::setValue(int input){
 ```
 `const function` can always be called. `Non const function` can only be called by `non const objects`, usually called mutable objects
 
-### Templates
+### Template functions
 ```
 template <typename T> T maxof (T a, T b){
     return (a > b ? a  : b);

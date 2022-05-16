@@ -77,14 +77,14 @@ void funcHeader(std::string *s) {
   printf("the value is %s\n", s->c_str());
 }
 
-unsigned long int factorial(unsigned long int input) {
-  unsigned long int factorialOut = 1;
+template <typename T> T factorial(T input) {
+  T factorialOut = 1;
   if (input == 1)
   {
     return 1;
   }
   
-  for (unsigned long int i = input; i > 1; i--) {
+  for (T i = input; i > 1; i--) {
     factorialOut *= i;
   }
   return factorialOut;
@@ -101,8 +101,8 @@ int main(int, char **) {
   puts("this main function");
   funcHeader(&ss);
   unsigned long int rr = 5;
-  unsigned long int output = factorial(rr);
-  printf("the factorial of %ld is %ld", rr, output);
+  float output = factorial<float>(rr);
+  printf("the factorial of %ld is %f", rr, output);
 
   int tt = 3;
   f1(tt);
