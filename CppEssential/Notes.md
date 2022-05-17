@@ -273,3 +273,9 @@ int maxof (int a, int b){
     - Confusing error messages
     -  Longer compile times
 
+### Unformatted character I/O
+`fflush(stdout)` : All file I/O in C and C++ is considered asychronous. It may or may not happen when tells it to happen. It might happen right now or later. `fflush()`: finish writing the output stream now
+
+### Formatted character I/O
+`printf("i is %04d", i)` the total digits will be 4, if `i` has two digits there will be two leading zeros
+
