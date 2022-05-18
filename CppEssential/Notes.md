@@ -279,3 +279,11 @@ int maxof (int a, int b){
 ### Formatted character I/O
 `printf("i is %04d", i)` the total digits will be 4, if `i` has two digits there will be two leading zeros
 
+### vector
+`std::vector<int>::iterator` here `iterator` is the memeber type def in the vector class
+
+```
+std::vector<int> vectorInput = {1,2,3,4};
+std::vector<int>::iterator itBegin = vectorInput.begin();
+```
+

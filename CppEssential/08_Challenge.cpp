@@ -31,7 +31,6 @@ int main() {
   inputFile.open(fileName);
   std::string line;
   const char delimiter = '\t';
-  std::vector<Inventory> inventory;
   if (inputFile.fail()) {
     const char *errorMsg = strerror(errno);
     printf("the error code is %d: %s", errno, errorMsg);
