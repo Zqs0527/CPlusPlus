@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 #include "funcHeader.h"
+#include <exception>
 
 void func() { puts("this is func"); }
 
@@ -94,7 +95,40 @@ template <typename T> T maxof (T a, T b){
   return (a > b ? a : b);
 } // typename is agnostic
 
+
+
+namespace CY{
+  class SpecificException : public std::exception
+  {
+  private:
+    const char * msg;
+  public:
+    SpecificException(const char * s) noexcept(true) : msg(s){};
+    const char * what() const noexcept(true) {return msg;}
+  };
+  
+}
+
+const CY::SpecificException e_badcode("Bad code..");
+const CY::SpecificException e_other("Other error..");
+
+
+void broken(){
+  std::cout << "there is an exception" << std::endl;
+  throw e_badcode;
+}
+
 int main(int, char **) {
+  try
+  {
+    broken();
+  }
+  catch(const CY::SpecificException& e)
+  {
+    std::cerr << e.what() << '\n';
+  }
+  
+
   std::cout << maxof<int>(7,9) << std::endl;
 
   std::string ss = "This is a long string";

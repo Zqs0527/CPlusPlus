@@ -14,7 +14,8 @@ struct Inventory {
   std::string description;
 };
 
-std::vector<std::string> getStrings(std::string &inputString, const char delimiter) {
+std::vector<std::string> getStrings(std::string &inputString,
+                                    const char delimiter) {
   std::vector<std::string> outputString;
   std::string s;
   std::stringstream inputStream(inputString);
@@ -26,6 +27,11 @@ std::vector<std::string> getStrings(std::string &inputString, const char delimit
   return outputString;
 }
 int main() {
+  char buffer[128];
+  std::cout << "input a sentence: ";
+  std::cin.getline(buffer, sizeof(buffer));
+  std::cout << buffer << std::endl;
+
   const char *fileName = "items.txt";
   std::ifstream inputFile;
   inputFile.open(fileName);
@@ -39,13 +45,13 @@ int main() {
 
   while (!inputFile.eof()) {
     getline(inputFile, line);
-    if (line=="")
-    {
-        break;
+    if (line == "") {
+      break;
     }
     std::vector<std::string> output = getStrings(line, delimiter);
     Inventory item = {output[0], output[1], output[2]};
-    std::cout << "SKU: " << item.SKU << " NAME: " << item.nameOfItem << " DESCRIPTION: " << item.description << std::endl;
+    std::cout << "SKU: " << item.SKU << " NAME: " << item.nameOfItem
+              << " DESCRIPTION: " << item.description << std::endl;
   }
 
   // const char * fileName = "items.txt";

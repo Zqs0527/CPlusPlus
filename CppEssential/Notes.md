@@ -286,4 +286,14 @@ int maxof (int a, int b){
 std::vector<int> vectorInput = {1,2,3,4};
 std::vector<int>::iterator itBegin = vectorInput.begin();
 ```
+### I/O streams
+```
+char buf[128];
+std::cin.getline(buf, sizeof(buf));// this is to input one line
+std::cout << buf << std::endl;
+```
 
+### Exception
+`#include <exception>`
+
+`noexcept(true)`: this is a specifier to say this is not an exception. It is safe to use in this context
