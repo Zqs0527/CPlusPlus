@@ -24,3 +24,19 @@ Use inheritence together with composition. Then there is no extra shared code by
 - Inheritence: Class extends another class
 
 ![](images/Screenshot%202022-05-19%20234240.png)
+
+### Concrete vs. abstract
+`Virtual` keyword is used to indicate a method must be overriden
+```
+class BaseClass{
+    public:
+    virtual void methodA(){
+
+    }
+    virtual void methodB()=0
+};
+```
+
+### Factory method design pattern
+- One of the most used design patterns
+- Encapsulates the creation of the related objects
