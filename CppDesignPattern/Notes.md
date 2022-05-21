@@ -40,3 +40,14 @@ class BaseClass{
 ### Factory method design pattern
 - One of the most used design patterns
 - Encapsulates the creation of the related objects
+- Create objects based on runtime parameters
+
+A general usage of factory method is to give results based on the different options given by users
+
+### Abstract factory design pattern
+Aims to create a family/suite of classes or products
+
+- Provides an interface for creating families of related objects without specifying their concrete classes
+
+![](images/Screenshot%202022-05-21%20222711.png)
+
