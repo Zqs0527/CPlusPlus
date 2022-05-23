@@ -51,5 +51,11 @@ Aims to create a family/suite of classes or products
 
 ![](images/Screenshot%202022-05-21%20222711.png)
 
+### Builder design pattern
+- Separates construction of complex objects
+- Builds a complex object one step at a time
+- Same construction process for different representations
+
+![](images/Screenshot%202022-05-23%20220117.png)
 
 

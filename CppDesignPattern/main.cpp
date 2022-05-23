@@ -4,30 +4,67 @@ using namespace std;
 
 class Entree {
 protected:
-  char _entree[10];
+  const char * _entree;
 
 public:
-  Entree(/* args */);
   const char *getEntree() { return _entree; }
-  ~Entree();
+};
+
+class Burger: public Entree
+{
+public:
+  Burger(/* args */){
+    cout << "\n Grill burger patty, add tomatoes and place them in a bun";
+    _entree = "hamburger";
+  };
+
+};
+
+class Hotdog: public Entree
+{
+public:
+  Hotdog(/* args */){
+    cout << "\n Cook sausage and place it in a bun";
+    _entree = "hotdog";
+  };
+
 };
 
 class Side {
 protected:
-  char _side[10];
+  const char * _side;
 
 public:
-  Side(/* args */);
   const char *getSide() { return _side; }
-  ~Side();
 };
+
+class Fries: public Side
+{
+public:
+  Fries(){
+    cout << "\n Fry and season potatoes";
+    _side = "fries";
+  };
+  ~Fries(){};
+};
+
+class Salad: public Side
+{
+public:
+  Salad(){
+    cout << "\n Make salad";
+    _side = "salad";
+  };
+  ~Salad(){};
+};
+
 
 class Drink {
 protected:
-  char *_drink;
+  const char *_drink;
 
 public:
-  Drink(char *s) : _drink(s) { cout << "Fill in the cup with soda" << endl; }
+  Drink(const char *s) : _drink(s) { cout << "Fill in the cup with soda" << endl; }
   const char *getDrink() { return _drink; }
   ~Drink();
 };
@@ -49,7 +86,22 @@ public:
               side->getSide(), drink->getDrink());
     return _bag;
   }
-  ~MealCombo();
+  ~MealCombo(){};
 };
+
+class MealBuilder
+{
+protected:
+  MealCombo *_mealCombo;
+public:
+ virtual void cookEntree() = 0;
+ virtual void cookSide() = 0;
+ virtual void fillDrink() = 0;
+ MealCombo *getMeal(){
+   return _mealCombo;
+ }
+};
+
+
 
 int main(int, char **) { cout << "Hello, world!\n"; }
