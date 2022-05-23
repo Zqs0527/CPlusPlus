@@ -64,8 +64,10 @@ protected:
   const char *_drink;
 
 public:
-  Drink(const char *s) : _drink(s) { cout << "Fill in the cup with soda" << endl; }
-  const char *getDrink() { return _drink; }
+  Drink(const char *s) { 
+    _drink = s;
+    cout << "\n Fill in the cup with " << s << endl; }
+  const char *getDrink() {  return _drink; }
   ~Drink();
 };
 
@@ -77,12 +79,12 @@ private:
   char _bag[100];
 
 public:
-  MealCombo(const char *type) { sprintf_s(_bag, "/n %s meal combo: ", type); }
+  MealCombo(const char *mealType) { sprintf_s(_bag, "\n %s meal combo: ", mealType); }
   void setEntree(Entree *e) { entree = e; }
   void setSide(Side *s) { side = s; }
   void setDrink(Drink *d) { drink = d; }
   const char *openBag() {
-    sprintf_s(_bag, "%s %s %s %s %s", _bag, entree->getEntree(),
+    sprintf_s(_bag, "%s, %s, %s, %s,", _bag, entree->getEntree(),
               side->getSide(), drink->getDrink());
     return _bag;
   }
@@ -102,6 +104,61 @@ public:
  }
 };
 
+// Create Builder for a hotdog meal which has a hotdog, fries and a drink
+class HotdogMeal: public MealBuilder
+{
+public:
+  HotdogMeal(){
+    _mealCombo = new MealCombo("Hotdog");
+  };
+  void cookEntree(){
+    Hotdog *hotdog = new Hotdog;
+    _mealCombo->setEntree(hotdog);
+  }
+  void cookSide(){
+    Salad *salad = new Salad;
+    _mealCombo->setSide(salad);
+  }
+  void fillDrink(){
+    Drink *drink = new Drink("Cola");
+    _mealCombo->setDrink(drink);
+  }
+};
 
 
-int main(int, char **) { cout << "Hello, world!\n"; }
+
+int main(int, char **) { 
+  MealBuilder *mealBuilder;
+  MealCombo *mealCombo;
+
+  int choice;
+  cout << "Select a type of meal to make: " << endl;
+  cout << "1: Hotdog" << endl;
+  cout << "2: Hamburger" << endl;
+  cout << "Selection: " << endl;
+  cin >> choice;
+  cout << endl;
+
+  switch (choice) {
+  case 1:
+    mealBuilder = new HotdogMeal;
+    break;
+  case 2:
+    mealBuilder = new HotdogMeal;
+    break;
+
+  default:
+    cout << "Selection doesn't exist.." << endl;
+    mealBuilder = nullptr;
+    break;
+  }
+  if (mealBuilder != NULL)
+  {
+    mealBuilder ->cookEntree();
+    mealBuilder->cookSide();
+    mealBuilder->fillDrink();
+    mealCombo = mealBuilder->getMeal();
+    cout << mealCombo->openBag() << endl;
+  }
+  
+}

@@ -58,4 +58,8 @@ Aims to create a family/suite of classes or products
 
 ![](images/Screenshot%202022-05-23%20220117.png)
 
+Builders share the same steps to build an object. The objects might have a common interface. 
+![](images/Screenshot%202022-05-23%20234155.png)
 
+
+### Prototype design pattern
