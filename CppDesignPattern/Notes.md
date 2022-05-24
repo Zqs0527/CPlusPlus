@@ -63,3 +63,13 @@ Builders share the same steps to build an object. The objects might have a commo
 
 
 ### Prototype design pattern
+Creates new objects by cloning an existing one
+The difference between a copy constructor and prototype design pattern
+![](images/Screenshot%202022-05-24%20215325.png)
+
+Shallow copy: only the memeber is copied
+Deep copy: makes copies of reference objects
+
+### Singleton
+ - Must be globalle accessible
+ - Must only be one instance of a class
