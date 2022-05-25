@@ -42,6 +42,8 @@ class BaseClass{
 - Encapsulates the creation of the related objects
 - Create objects based on runtime parameters
 
+![](images/Screenshot%202022-05-25%20214447.png)
+
 A general usage of factory method is to give results based on the different options given by users
 
 ### Abstract factory design pattern
@@ -71,5 +73,42 @@ Shallow copy: only the memeber is copied
 Deep copy: makes copies of reference objects
 
 ### Singleton
- - Must be globalle accessible
- - Must only be one instance of a class
+ - Must be **global** accessible
+ - Must only be **one instance** of a class
+ ![](images/Screenshot%202022-05-25%20211342.png)
+ The constructor is private. The class can not be instantiated in `main()`, which is outside of the class
+ ```
+ class Leader{
+ private:
+    Leader *_instance
+    Leader()=0;
+ public:
+    Leader * getInstance(){
+        if (_instance == NULL){
+            _instance = new Leader();
+        }
+        return _instance;
+    }
+    void giveSpeech(){
+
+    }
+ }
+
+ int main(){
+     Leader::getInstance() -> giveSpeech();
+ }
+ ```
+ - Lazy initialization
+ - Critical section
+    
+    ```
+    EnterCriticalSection(&critical);
+    ...
+    ...
+    LeaveCriticalSection(&critical);
+    ```
+    Only one thread can excute the whole block. It is a costly operation
+
+
+### Summary
+![](images/Screenshot%202022-05-25%20213711.png)
