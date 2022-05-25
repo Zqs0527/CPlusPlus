@@ -10,6 +10,6 @@ int maxof(int &a, int &b){
     return a > b ? a : b;
 }
 ```
-if `a` and `b` are `string` type, the comparison is based on the alphabet.
+if `a` and `b` are `string` type, the comparison is based on the alphabets order
 
 if if `a` and `b` are `pointer` type, the comparison is based on the pointer, e.g. `const char *`
