@@ -77,3 +77,42 @@ The list is a sequence container like a vector, but it is optimized for rapid in
     - The stack implements last in first out stack, where the elements pushed and popped from the top of the stack which is the back of the container
 
 - Set
+    - It is a container holds a sorted elements. It holds only unique elements. `multiset<string>` provides the duplication of the elements
+    - `#include <unordered_set>` will not sort the set and it will make it faster to access by providing the hash keys
+
+- Map
+    - key value pairs, `{"a", "b"}`
+
+
+### Iterators
+
+It works a lot like a pointer. It can be incremented and de-referenced
+- double colon operator `::` is the scope resolution operator. `iterator` class is defined in the scope of container
+```
+vector<int> vi1 = {1,2,3,4};
+vector<int>::iterator it1;
+vector<int>::iterator ibegin = vi1.begin();
+vector<int>::iterator iend = vi1.end();
+
+for (it1 = ibegin; it1 < iend; it1++){
+    cout << *it1 << " ";
+}
+cout << endl;
+```
+- Accessing iterators
+- Input iterators
+- Output iterators
+- Forward iterators
+- Bidirectional iterators
+- Random access iterators
+
+`container.end()` is pointing to the location passed the last element of the container.
+```
+vector<int> v1 = {1,2,3,4}
+x = v1.end() - 3
+```
+The value of x is 2
+
+### File I/O
+`CR`: carriage return
+`LF`: line feed character
