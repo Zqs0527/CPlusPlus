@@ -113,6 +113,5 @@ x = v1.end() - 3
 ```
 The value of x is 2
 
-### File I/O
-`CR`: carriage return
-`LF`: line feed character
+
+### Transformations
