@@ -129,7 +129,7 @@ transform(v1.begin(), v1.end(), v2.begin(), v3.begin(), fbig); // fbig is a func
 - Transformation types
 
 ### Arithmetic functors
-It is in the `functional` header: `#include <functional>`y
+It is in the `functional` header: `#include <functional>`
 - `minus<T> f;`
 - `plus<T> f;`
 - `multiplies<T> f;`
@@ -139,5 +139,13 @@ It is in the `functional` header: `#include <functional>`y
 It is in the `functional` header: `#include <functional>`
 - `greater<T> f;`
 - `less<T> f;`
-- `greater<T> f;`
+- `greater_equal<T> f;`
+- `less_equal<T> f;`
+- `equal_to<T> f;`
+- `not_equal_to<T> f;`
+
+Above functors can be used in `transform()`, `sort()`
+
+### Logical operator functors
+
 
