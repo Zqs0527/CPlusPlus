@@ -121,3 +121,23 @@ It is in the header of `algorithm`
 auto x = [accum] (int d) mutable -> int {return accum += d;};
 ```
 `accum` is to capture something. `(int d)` is the parameter. `-> int` the return value type is `int`. 
+
+- Binary transformation
+```
+transform(v1.begin(), v1.end(), v2.begin(), v3.begin(), fbig); // fbig is a function
+```
+- Transformation types
+
+### Arithmetic functors
+It is in the `functional` header: `#include <functional>`y
+- `minus<T> f;`
+- `plus<T> f;`
+- `multiplies<T> f;`
+- `divides<T> f;`
+
+### Relational functors
+It is in the `functional` header: `#include <functional>`
+- `greater<T> f;`
+- `less<T> f;`
+- `greater<T> f;`
+
