@@ -115,3 +115,9 @@ The value of x is 2
 
 
 ### Transformations
+It is in the header of `algorithm`
+- Lambda transformation
+```
+auto x = [accum] (int d) mutable -> int {return accum += d;};
+```
+`accum` is to capture something. `(int d)` is the parameter. `-> int` the return value type is `int`. 
