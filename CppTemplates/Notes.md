@@ -147,5 +147,21 @@ It is in the `functional` header: `#include <functional>`
 Above functors can be used in `transform()`, `sort()`
 
 ### Logical operator functors
+It is in the `functional` header: `#include <functional>`
+- `logical_and<T> f;`
+- `logical_or<T> f;`
+- `logical_not<T> f;`
+
+## STL Algorithms
+- `sort()`
+- `binary_search()`
+- `all_of()`
+- `any_of()`
+- `none_of()`
+- `find()`
+- `find_if()`
+- `find_if_not()`
+- `search(v1, v2)` is to find the the `v2` in `v1`
+
 
 

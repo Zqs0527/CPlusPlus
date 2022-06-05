@@ -37,12 +37,15 @@ int main(){
     cout << "x(5) is " << x(5) << endl;
     cout << "x(25) is " << x(25) << endl;
 
-    vector<long> v1 = {1,2,3,4};
-    vector<long> v2 = {20,34,35,6};
+    vector<long> v1 = {1,0,1,1};
+    vector<long> v2 = {0,0,1,1};
     vector<long> v3(v1.size(), 0);
 
-    multiplies<long> f;
-    transform(v1.begin(), v1.end(), v2.begin(), v3.begin(), f);
+    // multiplies<long> f;
+    // transform(v1.begin(), v1.end(), v2.begin(), v3.begin(), f);
+
+    logical_and<long> f1;
+    transform(v1.begin(), v1.end(), v2.begin(), v3.begin(), f1);
 
     disp_v(v3);
-    }
+}
