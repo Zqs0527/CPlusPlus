@@ -34,7 +34,7 @@ Containers are the heart of the STL
 
 The list is a sequence container like a vector, but it is optimized for rapid insert and delete operations. It doesn't support random access
 
-    - list\<int\> l1 = {1, 2, 3};
+`list<int> l1 = {1, 2, 3};`
 
 - Pair and tuple
 
@@ -162,6 +162,7 @@ It is in the `functional` header: `#include <functional>`
 - `find_if()`
 - `find_if_not()`
 - `search(v1, v2)` is to find the the `v2` in `v1`
+- `replace()`
 
 
 
