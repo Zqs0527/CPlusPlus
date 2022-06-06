@@ -24,3 +24,12 @@ Deploy to Heroku
     3. Create Heroku app
     4. Push the container and release it
     5. Test in the browser
+
+Saving container to docker hub
+- Share the images. Cloud based registry service. You can create as many public images as possible, and you can store one private image. Free to sign up
+1. Log in to Docker hub
+2. Tag the image
+3. Push the image
+4. Verify the push
+
+Ways to create HTML pages
