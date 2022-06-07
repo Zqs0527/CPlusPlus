@@ -33,3 +33,16 @@ Saving container to docker hub
 4. Verify the push
 
 Ways to create HTML pages
+1. Pure HTML
+2. Mixed HTML and Mustache templates (prominent web template system)
+
+What each webpage needs
+1. An HTML file in the public directory
+2. A route handler
+
+The public directory
+- images - images files
+- scripts - JavaScript files
+- styles - CSS files
+- HTML files go in the root of public
+
