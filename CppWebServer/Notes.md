@@ -46,3 +46,7 @@ The public directory
 - styles - CSS files
 - HTML files go in the root of public
 
+`docker build --rm --squash -t --no-cache bbox:latest .`
+
+`-rm` tells docker to remove intermediate container
+
