@@ -45,3 +45,10 @@ template <int toCube> struct Cube {
 ```
 Standard Template library
 - Algorithms, containers, functions and iterators
+
+Functional Programming Libraries
+- Loki
+- Boost.MPL
+- Boost.Fusion
+- Boost.Hana
+- Boost.HOF (HigherOrderFunctions)
