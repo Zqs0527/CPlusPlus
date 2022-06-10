@@ -32,3 +32,16 @@ The first argument is the function address.
 - Create closure over calling scope
 - Use the keyword mutable to make changes to the closure
 
+### Chapter 3
+Template Metaprogramming
+- It is a turning complete, functional programming language built-in to C++
+- TMP varibales are always immutable
+- TMP doesn't have loops, so we use recursion
+- TMP doesn't have braching, use specialization
+```
+template <int toCube> struct Cube {
+  enum { value = toCube * toCube * toCube };
+};
+```
+Standard Template library
+- Algorithms, containers, functions and iterators

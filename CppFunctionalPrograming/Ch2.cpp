@@ -14,40 +14,50 @@ bool greaterThan(const int &firstValue, const int &secondValue) {
   return firstValue >= secondValue;
 }
 
-void demoFunction(){
-  cout << "Demo function is called" << endl;
-}
+void demoFunction() { cout << "Demo function is called" << endl; }
 
-void adder(const int &a, const int &b){
-  cout << "Called adder, a+b = " << a+b << endl;
+void adder(const int &a, const int &b) {
+  cout << "Called adder, a+b = " << a + b << endl;
 }
 
 class functors {
-  public:
-  void operator()() const{
-    cout << "Called functors" << endl;
-  }
+public:
+  void operator()() const { cout << "Called functors" << endl; }
 };
 
-auto addCurry = [](auto a){
-  return [a](auto b){
-    return [a,b](auto c){
-      return a+b+c;
-    };
-  };
+auto addCurry = [](auto a) {
+  return [a](auto b) { return [a, b](auto c) { return a + b + c; }; };
 };
 
-auto incrementer = [](){
-  
+auto incrementer = []() {
+  int increment = 0;
+  return [increment]() mutable { return increment++; };
+};
+
+auto continuousAdd = [](int initial, int addBy) {
+  int i = initial;
+  return [i, addBy]() mutable { return i += addBy; };
 };
 
 int main() {
+
+  auto x = continuousAdd(100, 20);
+
+  cout << "The first increment: " << x() << endl;
+  cout << "The second increment: " << x() << endl;
+  cout << "The third increment: " << x() << endl;
+
+  auto myInc = incrementer();
+  cout << "The first increment: " << myInc() << endl;
+  cout << "The second increment: " << myInc() << endl;
+  cout << "The third increment: " << myInc() << endl;
+
   auto add1 = addCurry(2);
   auto add2 = add1(2);
   auto addResults = add2(34);
 
   cout << "Add curry results: " << addResults << endl;
-  cout << "Give all three values: "  << addCurry(10)(20)(30) << endl;
+  cout << "Give all three values: " << addCurry(10)(20)(30) << endl;
 
   vector<function<void()>> funcs;
   funcs.push_back(demoFunction);
@@ -55,14 +65,13 @@ int main() {
   functors functor_object;
   funcs.push_back(functor_object);
 
-  funcs.push_back([](){cout << "Called lambda function" << endl;});
+  funcs.push_back([]() { cout << "Called lambda function" << endl; });
   funcs.push_back(bind(&adder, 10, 15));
 
-  for (auto &v: funcs)
-  {
+  for (auto &v : funcs) {
     v();
   }
-  
+
   vector<int> ages{9, 20, 15, 6, 7, 12, 56, 78, 53};
   int over21 = 0;
   for (const int &value : ages) {
@@ -77,7 +86,7 @@ int main() {
 
   auto numberOf21 = count_if(ages.begin(), ages.end(),
                              bind(&greaterThan, placeholders::_1, 21));
-    cout << "New number over 21 = " << numberOf21 << endl;
+  cout << "New number over 21 = " << numberOf21 << endl;
 
   auto values = [](auto collection) {
     for (const auto &x : collection) {
