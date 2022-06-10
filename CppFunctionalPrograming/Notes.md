@@ -17,3 +17,18 @@
 - Manipulate a function and its parameters
 - Reorder the function's arguments
 - Bind values to arguments
+```
+ bind(&greaterThan, placeholders::_1, 21));
+```
+The first argument is the function address. 
+
+`std::function`
+- It is a wrapper for invokable objects
+- Invokable objects include functions, functors and lambdas
+- Can store functions in a vector
+
+`Lambda`
+- Unnamed function object
+- Create closure over calling scope
+- Use the keyword mutable to make changes to the closure
+
