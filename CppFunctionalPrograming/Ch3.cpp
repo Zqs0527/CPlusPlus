@@ -1,5 +1,6 @@
 #include <iostream>
 #include <boost/hana.hpp>
+#include "../../CPlusPlus/RxCpp/Rx/v2/src/rxcpp/rx.hpp"
 #include <vector>
 #include <string>
 namespace hana = boost::hana;
@@ -61,7 +62,21 @@ struct Car {
   string name;
 };
 
+namespace Rx{
+  using namespace rxcpp;
+  using namespace rxcpp::sources;
+  using namespace rxcpp::operators;
+  using namespace rxcpp::util;
+}
+using namespace Rx;
+
 int main() {
+  vector<int> ages{9, 20, 15, 6, 7, 12, 17, 19, 56, 78, 53};
+  auto values = rxcpp::observable<>::iterate(ages).
+  filter([](int age){return age >= 13 && age <= 19;}).
+  subscribe([](int age){cout << "This is number between 13 and 19 is " << age << endl;},
+  [](){cout << "Oncompleted" << endl;});
+
   cout << "Fibonacci(2): " << Fibonacci<2>::value << endl;
   cout << "Fibonacci(3): " << Fibonacci<3>::value << endl;
   cout << "Fibonacci(5): " << Fibonacci<5>::value << endl;

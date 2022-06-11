@@ -52,3 +52,12 @@ Functional Programming Libraries
 - Boost.Fusion
 - Boost.Hana
 - Boost.HOF (HigherOrderFunctions)
+
+Introduction to Reactive Extensions
+- Combines the best parts of the observer adn iterator patterns and functional programming
+- ReactiveX is available for all major programming languages. Four keys for ReactiveX are:
+  - Observable
+  - Observers
+  - Operators
+  - Schedulers
+
