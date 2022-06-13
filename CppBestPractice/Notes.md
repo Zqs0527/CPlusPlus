@@ -17,3 +17,16 @@ Coverity -> a static analysis tool for C/C++ (commercial)
 
 Auto type deduction
 - `auto` tells the compiler to deduce the type of a variable
+
+Strongly typed enums
+- Must use scope resolution operator
+- Enums no longer exported to surrounding scope
+- Redefinition of types ia no longer an issue
+- Implicit conversion is no longer allowed
+
+
+Lambda functions
+- Unnamed function object
+- Use a lambda to write a local function of limited use
+- Use a lambda for complex initialization
+- Always prefer lambda function to `std::bind`
