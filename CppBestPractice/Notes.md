@@ -14,3 +14,6 @@ C++17 structured binding, nested namespace, inline variables and constexpr lambd
 Cppcheck -> even checks for use of STL
 
 Coverity -> a static analysis tool for C/C++ (commercial)
+
+Auto type deduction
+- `auto` tells the compiler to deduce the type of a variable
