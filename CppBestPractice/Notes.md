@@ -29,4 +29,4 @@ Lambda functions
 - Unnamed function object
 - Use a lambda to write a local function of limited use
 - Use a lambda for complex initialization
-- Always prefer lambda function to `std::bind`
+- Always prefer lambda function to ` std::bind`
