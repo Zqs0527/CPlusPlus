@@ -29,4 +29,21 @@ Lambda functions
 - Unnamed function object
 - Use a lambda to write a local function of limited use
 - Use a lambda for complex initialization
-- Always prefer lambda function to ` std::bind`
+- Always prefer lambda function to `std::bind`
+
+Modern C++ has three types of smart pointers
+- `std::shared_ptr`
+- `std::unique_ptr`: default option
+- `std::weak_ptr`
+
+The Rules of Zero, Three, and Five
+- Five Class special functions:
+    - Copy constructor, copy assignment operator, move operator, move assignment operator and destructor
+- Zero
+    - Don't create above five special functions. The best practice is to leave them to the compiler
+
+Resource Aquisition Is Initialization (RAII)
+- The destructors of stack objects are always called
+- Stack objects are trashed in reverse order of their creating
+- Any critical resources should be created on the stack
+- They should be written to destroy themselves properly
