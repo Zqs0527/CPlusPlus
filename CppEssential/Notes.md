@@ -83,7 +83,7 @@ const char * cstring = "String"; // makes the pointer to point to the type of th
 - backslash `\`
 
 ### Qualifier
-`const static int- i = 42; // const and static are qualifiers`
+`const static int i = 42; // const and static are qualifiers`
 
 - Constant and Volatile qualifiers (CV Qualifiers)
     - `const`
