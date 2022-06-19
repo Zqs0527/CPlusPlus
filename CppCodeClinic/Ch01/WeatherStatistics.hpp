@@ -3,6 +3,7 @@
 #include <fstream>
 #include <string>
 #include <filesystem>
+#include <map>
 
 namespace WeatherStatistics{
     class WeatherStatistics
@@ -19,4 +20,6 @@ namespace WeatherStatistics{
     std::vector<std::string> GetCloumnValues(std::string &inputValue, const char deli);
 
     time_t ConvertTimeStamps(std::string dateInfo);
+
+    std::map<time_t, double> GetDataFromFile(std::string filePath, const char *dirName);
 }
