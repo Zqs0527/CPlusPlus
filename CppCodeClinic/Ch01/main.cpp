@@ -1,4 +1,5 @@
 #include "WeatherStatistics.cpp"
+using namespace std;
 
 int main() {
 
@@ -15,8 +16,10 @@ int main() {
   cout << "Please endter the end time, format is hh:mm:ss (24 hours): ";
   cin >> endTime;
 
-  double startTimeInSecond = WeatherStatistics::ConvertTimeStamps(startDate + " " + startTime);
-  double endTimeInSecond = WeatherStatistics::ConvertTimeStamps(endDate + " " + endTime);
+  WeatherStatistics::WeatherStatistics statistic = WeatherStatistics::WeatherStatistics();
+
+  double startTimeInSecond = statistic.ConvertTimeStamps(startDate + " " + startTime);
+  double endTimeInSecond = statistic.ConvertTimeStamps(endDate + " " + endTime);
 
   const char *dirName =
       "C:\\Users\\yuanc\\Repository\\CPlusPlus\\CppCodeClinic\\Ch01\\resources\\";
@@ -33,6 +36,23 @@ int main() {
         break;
       }
   }
-  map<time_t, double> timeToPressure = WeatherStatistics::GetDataFromFile(filePath, dirName);
+  map<time_t, double> timeToPressure = statistic.GetDataFromFile(filePath, dirName);
+
+  // find iterators based on input range
+  map<time_t, double> ::iterator startTimePressure;
+  map<time_t, double> ::iterator endTimePressure;
+
+  startTimePressure = timeToPressure.lower_bound(startTimeInSecond);
+  endTimePressure = timeToPressure.lower_bound(endTimeInSecond);
+
+  // Extract time and time pressure values
+  double timeDiff = endTimePressure->first - startTimePressure->first;
+  double pressureDiff = endTimePressure->second - startTimePressure->second;
+
+  double coefficient = pressureDiff / timeDiff;
+
+  cout << "The coefficient is " << coefficient * 24 * 60 * 60 << endl;
+
+  return 0;
   
 }

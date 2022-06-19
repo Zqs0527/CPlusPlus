@@ -9,7 +9,9 @@
 
 using namespace std;
 
-vector<std::filesystem::directory_entry> WeatherStatistics::ReadDirectory(const char *directory) {
+WeatherStatistics::WeatherStatistics::WeatherStatistics(){}
+
+vector<std::filesystem::directory_entry> WeatherStatistics::WeatherStatistics::ReadDirectory(const char *directory) {
   vector<std::filesystem::directory_entry> collectionOfFiles;
   for (auto p : std::filesystem::directory_iterator{directory}) {
     if (p.is_regular_file()) {
@@ -19,7 +21,7 @@ vector<std::filesystem::directory_entry> WeatherStatistics::ReadDirectory(const 
   return collectionOfFiles;
 }
 
-vector<string> WeatherStatistics::GetCloumnValues(string &inputValue, const char deli) {
+vector<string> WeatherStatistics::WeatherStatistics::GetCloumnValues(string &inputValue, const char deli) {
   std::stringstream inputStream(inputValue);
   vector<string> outputStrings;
   string s;
@@ -31,7 +33,7 @@ vector<string> WeatherStatistics::GetCloumnValues(string &inputValue, const char
   return outputStrings;
 }
 
-time_t WeatherStatistics::ConvertTimeStamps(string dateInfo) {
+time_t WeatherStatistics::WeatherStatistics::ConvertTimeStamps(string dateInfo) {
   struct std::tm tm;
   std::istringstream ss(dateInfo);
   ss >> std::get_time(&tm, "%Y_%m_%d %H:%M:%S");
@@ -41,7 +43,7 @@ time_t WeatherStatistics::ConvertTimeStamps(string dateInfo) {
   return t;
 }
 
-std::map<time_t, double> WeatherStatistics::GetDataFromFile(string filePath, const char *dirName){
+std::map<time_t, double> WeatherStatistics::WeatherStatistics::GetDataFromFile(string filePath, const char *dirName){
   ifstream inputFile;
   if (filePath != "")
   {
