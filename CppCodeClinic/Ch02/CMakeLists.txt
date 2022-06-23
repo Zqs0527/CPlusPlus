@@ -8,7 +8,7 @@ find_package(CURL REQUIRED)
 
 add_executable(WhereAmI main.cpp)
 add_library(cJSON STATIC cJSON.c)
-target_link_libraries(WhereAmI PRIVATE CURL::libcurl)
+target_link_libraries(WhereAmI PRIVATE CURL::libcurl cJSON)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
