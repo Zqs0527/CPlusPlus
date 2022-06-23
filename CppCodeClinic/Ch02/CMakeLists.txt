@@ -5,8 +5,8 @@ include(CTest)
 enable_testing()
 
 find_package(CURL REQUIRED)
-
-add_executable(WhereAmI main.cpp)
+file(GLOB_RECURSE SOURCES RELATIVE ${CMAKE_SOURCE_DIR} "*.c")
+add_executable(WhereAmI ${SOURCES})
 target_link_libraries(WhereAmI PRIVATE CURL::libcurl)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
