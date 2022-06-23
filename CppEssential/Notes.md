@@ -32,8 +32,8 @@ x = 1;
 int y = x;
 
 int * ip; // this is an integer pointer to an integer value
-ip = &x; // ampersand operator here is called refrence operator. The address of operator
-y = *ip; // this statements copies the value pointed to by ip into y. this asterisk is called pointer dereference operator
+ip = &x; // ampersand operator here is called reference operator. The address of operator
+y = *ip; // this statements copies the value pointed to by `ip` into y. this asterisk is called pointer dereference operator
 ```
 
 ### References
