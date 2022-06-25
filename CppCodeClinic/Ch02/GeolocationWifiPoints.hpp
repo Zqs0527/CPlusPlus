@@ -11,6 +11,7 @@
 
 #include <windows.h>
 #include <wlanapi.h>
+#pragma comment(lib, "Wlanapi.lib")
 
 #include "cJSON.h"
 
